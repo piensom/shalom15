@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vendor_model_view_tree" model="ir.ui.view">
+        <field name="name">vendor.model.view.tree</field>
+        <field name="model">vendor.model</field>
+        <field name="arch" type="xml">
+            <tree string="vendor_model_tree">
+                <field name="name"/>
+                <field name="emergency_contact"/>
+                <field name="pho"/>
+                <field name="bd_day"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="vendor_model_action" model="ir.actions.act_window">
+        <field name="name">Vendedor</field>
+        <field name="res_model">vendor.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="vendor_model_menu_action"
+            action="vendor_model_action"
+            web_icon="vendor,static/description/icon.png"
+    />
+
+
+    <record id="vendor_view_tree" model="ir.ui.view">
+        <field name="name">vendor.view.tree</field>
+        <field name="model">vendor.model</field>
+        <field name="arch" type="xml">
+            <tree string="vendor_tree">
+                <field name="name"/>
+                <field name="pho"/>
+                <field name="emergency_contact"/>
+                <field name="bd_day"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
