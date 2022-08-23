@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hide_partner_fields" model="ir.ui.view">
+        <field name="name">hide.partner.fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='city']" position="attributes">
+                <attribute placeholder="Departamento"/>
+            </xpath>
+
+            <xpath expr="//field[@name='state_id']" position="attributes">
+                <attribute placeholder="Municipio"/>
+            </xpath>
+
+            <xpath expr="//field[@name='zip']" position="attributes">
+                <attribute placeholder="Zona"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
