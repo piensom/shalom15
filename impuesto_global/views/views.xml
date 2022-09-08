@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_impuesto_global_tree">
+        <field name="name">Impuestos Globales</field>
+        <field name="model">impuesto_global.taxes</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="tipo"/>
+
+                    <field name="impuesto_global"/>
+                    <field name="porcentaje"/>
+                    <field name="rangos"/>
+                <field name="rangos_ids" mode="tree,form,kanban">
+                    <form string="Rangos">
+                      <group>
+                            <field name="range_from"/>
+                            <field name="range_to"/>
+                            <field name="porcentaje"/>
+                        </group>
+                    </form>
+                </field>
+            </tree>
+        </field>
+        </record>
+
+        <record id="action_impuesto_global_menu" model="ir.actions.act_window">
+            <field name="name">Impuestos Globales</field>
+            <field name="res_model">impuesto_global.taxes</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_impuesto_global_tree"/>
+        </record>
+        
+       <menuitem
+            id="sale_commission_categories_menu"
+            parent='account.account_management_menu'
+            name='Impuestos Globales'
+            sequence='200'
+            action='action_impuesto_global_menu'
+        />
+        
+        <record model="ir.ui.view" id="view_sale_impuesto_global_tree">
+        <field name="name">Impuesto Global Tree</field>
+        <field name="model">impuesto_global.taxes.ranges</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="range_from"/>
+                <field name="range_to"/>
+                <field name="porcentaje"/>
+            </tree>
+        </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_sale_impuesto_global_range_tree">
+        <field name="name">Impuesto Global Rango Tree</field>
+        <field name="model">impuesto_global.taxes.lines</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="move_id" invisible="1"/>
+                <field name="impuesto"/>
+                <field name="total_impuesto"/>
+            </tree>
+        </field>
+        </record>
+
+
+        <record id="account_move_form_view_inh_impuesto_global" model="ir.ui.view">
+            <field name="name">account.move.view.form.inh.impuesto.global</field>
+            <field name="model">account.move</field>
+            <field name='inherit_id' ref='account.view_move_form'/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="fiscal_position_id" position="after">
+                        <field name="retencion_iva" attrs="{'invisible' : [('fiscal_position_id', '=', False)]}"/>
+                        <field name="retencion_isr" attrs="{'invisible' : [('fiscal_position_id', '=', False)]}"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+   </data>
+</odoo> 

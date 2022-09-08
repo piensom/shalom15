@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_user_impuesto_global_taxes,access_user_impuesto_global_taxes,model_impuesto_global_taxes,,1,1,1,1
+access_user_impuesto_global_taxes_ranges,access_user_impuesto_global_taxes_ranges,model_impuesto_global_taxes_ranges,,1,1,1,1
+access_user_impuesto_global_taxes_lines,access_user_impuesto_global_taxes_lines,model_impuesto_global_taxes_lines,,1,1,1,1
