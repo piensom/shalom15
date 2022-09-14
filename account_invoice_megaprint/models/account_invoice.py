@@ -353,7 +353,8 @@ class AccountInvoice(models.Model):
             total_impuesto += MontoImp
             total = grabable + MontoImp
             gran_total += total
-            descripcion_not = inv_line.name
+            #descripcion_not = inv_line.name
+            descripcion_not = inv_line.name or inv_line.product_id.name
             #AdendaSummary.append(inv_line.name)
 
             if str(inv_line.product_uom_id.name):
