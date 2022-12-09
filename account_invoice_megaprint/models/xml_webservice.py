@@ -392,11 +392,11 @@ class AccountInvoice(models.Model):
         paisRecept.text = str(_paisRecept)
 
         # FRASES
-        #frases = SubElement(DatosEmision, 'dte:Frases')
-        #for phrase in _frases:
-        #    frase = SubElement(frases, 'dte:Frase')
-        #    frase.set('CodigoEscenario', str(phrase[0]))
-        #    frase.set('TipoFrase', str(phrase[1]))
+        frases = SubElement(DatosEmision, 'dte:Frases')
+        for phrase in _frases:
+            frase = SubElement(frases, 'dte:Frase')
+            frase.set('CodigoEscenario', str(phrase[0]))
+            frase.set('TipoFrase', str(phrase[1]))
 
         # ITEMS
         items = SubElement(DatosEmision, 'dte:Items')
