@@ -13,7 +13,8 @@ class AccountMove(models.Model):
         if self.fiscal_position_id:
             if self.fiscal_position_id.retention_type == 'IVA':
                 self.retention_warning = 'El documento tiene retención de IVA'
-                self.retention_amount = self.amount_untaxed * 0.12
+                # self.retention_amount = self.amount_untaxed * 0.12
+                self.retention_amount = self.amount_untaxed * 0.12 * 0.15
                 self.has_retention = True
             elif self.fiscal_position_id.retention_type == 'ISR':
                 self.retention_warning = 'El documento tiene retención de ISR'
