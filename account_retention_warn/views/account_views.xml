@@ -21,11 +21,11 @@
                     <sheet>
                        <group>
                            <group>
-                                <!--<field name="debit_account_id"/>
-                                <field name="credit_account_id"/>-->
+                                <field name="numero_retencion"/>
                             </group>
                             <group>
-                                <field name="numero_retencion"/>
+                                <!--<field name="debit_account_id"/>
+                                <field name="credit_account_id"/>-->
                             </group>
                        </group>
                         <footer>                        
